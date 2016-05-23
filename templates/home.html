@@ -1,0 +1,50 @@
+{% load static %}
+
+<html>
+
+  <head>
+    <title>{% block title %}Django blog{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/jquery-2.0.0.min.js' %}"></script>
+    <script src="{% static 'js/ajax.js' %}"></script>
+    <script src="{% static 'js/table.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+  </head>
+
+
+
+  <body onload="startTime()">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="/admin/" style="text-align: center; color:white; text-shadow: 0 0 5px #fff, 0 0 10px #fff">Admin</a>
+      <a href="/data/create/" style="text-align: center; color:white; text-shadow: 0 0 5px #fff, 0 0 10px #fff">Create article</a>
+      <a href="/accounts/logout/" style="text-align: center; color:white; text-shadow: 0 0 5px #fff, 0 0 10px #fff">Logout</a>
+      <div id="txt"></div>
+    </div>
+    <span style="font-size:30px;cursor:pointer; color:white; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;" onclick="openNav()">☰ open</span>
+    <ul id="nav">
+      <div style="width:450px; margin:0 auto;">
+        <h1><li><span></span><a href="#">D j a n g o &nbsp  W e b</a></li></h1></div>
+    </ul>
+<hr>
+    <video autoplay loop muted id="background">
+      <source src="https://zippy.gfycat.com/ImmaterialLazyGiantschnauzer.mp4" type="video/mp4">
+    </video>
+
+
+
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-8">
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Django project</title>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/index.js' %}"></script>
+</head>
+
+<body>
+
+  <div class="vid-container">
+    <video id="Video1" class="bgvid back" autoplay="false" muted="muted" preload="auto" loop>
+      <source src="http://shortcodelic1.manuelmasiacsasi.netdna-cdn.com/themes/geode/wp-content/uploads/2014/04/milky-way-river-1280hd.mp4.mp4" type="video/mp4">
+  </video>
+    <div class="inner-container">
+      <video id="Video2" class="bgvid inner" autoplay="false" muted="muted" preload="auto" loop>
+      <source src="http://shortcodelic1.manuelmasiacsasi.netdna-cdn.com/themes/geode/wp-content/uploads/2014/04/milky-way-river-1280hd.mp4.mp4" type="video/mp4">
+    </video>
+      <div class="box">
+        {% block content %}
+        <h1>Login</h1>
+
+        <form action="/accounts/auth/" method="post">{% csrf_token %}
+
+          <h5>Username</h5>
+          <input type="text" name="username" value="" id="username" placeholder='Enter your username here' required>
+          <h5>Password</h5>
+          <input type="password" name="password" value="" id="password" placeholder='Enter your password here' required>
+          <input type="submit" value="Enter" />
+
+        </form>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

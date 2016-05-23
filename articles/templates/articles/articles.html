@@ -1,0 +1,54 @@
+{% extends "home.html" %} {% load static %} {% block content %}
+
+
+
+
+<!--SEARCH OPTION -->
+<h3> Search </h3> {% csrf_token %}
+<input type="text" id="search" name="search" />
+<ul id="search-results">
+</ul>
+
+<!--DATA -->
+{% if articles.count > 0 %}
+
+
+<table class="sortable">
+  <thead>
+    <tr>
+      <th>TAG SNPs</th>
+      <th>Functional SNPs</th>
+      <th>Trait</th>
+      <th>Reference</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for article in articles %}
+    <tr>
+      <td> <a href="/data/get/{{ article.id }}"> {{ article.TAG_SNPs }}</a></td>
+      <td> {{ article.Functional_SNPs }}</td>
+      <td> {{ article.Trait }}</td>
+      <td> {{ article.Reference }}</td>
+      <td> {{ article.author }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+
+<p>None to show !</p>
+
+{% endif %} 
+
+
+<!--COOKIES -->
+<div style="position: relative; width: 1140px;">
+	<div style="position: absolute; top: 0; right: 0; width: 250px; text-align:right; color:white; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;">Language is: {{language}}
+	</div>
+  <div style="position: absolute; bottom: 0; right: 0; width: 250px; text-align:right;color:white; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;">Session language is: {{session_language}}
+	  </div>
+	  </div>
+
+
+{% endblock %}

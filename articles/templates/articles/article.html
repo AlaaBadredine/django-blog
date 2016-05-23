@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+{% load static %}
+{% block content %}
+<h2><a href="/data/all/">{{ article.TAG_SNPs }}</a></h2>
+<h4>{{ article.Trait }}</h4>
+<h4>{{ article.Functional_SNPs }}</h4>
+<h4>{{ article.Reference }}</h4>
+
+<h4>Click <a href="{% url 'delete_article' id=article.pk %}">here</a> to delete this entry.</h4>
+{% endblock %}
